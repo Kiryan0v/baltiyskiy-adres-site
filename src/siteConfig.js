@@ -1,0 +1,16 @@
+export const siteConfig = {
+  brand: "Балтийский адрес —",
+  name: "Юлия Семина",
+  legalName: "Семина Юлия Станиславовна",
+  role: "частный риелтор в Калининграде и по России",
+  region: "Калининград и Россия",
+  email: "",
+  phone: "+79212649855",
+  privacyContactEmail: "",
+  operatorStatus: "[уточните: физическое лицо, ИП или юридическое лицо]",
+  operatorAddress: "[укажите адрес оператора]",
+  siteDomain: "[укажите домен сайта]",
+  dataRetention: "[укажите срок хранения обращений и писем]",
+  telegram: "",
+  propertyLinks: ["", "", ""],
+};
