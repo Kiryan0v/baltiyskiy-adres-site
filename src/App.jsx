@@ -159,6 +159,36 @@ function DemoPhotoLabel({ children = "Демонстрационное фото"
 }
 
 function Hero() {
+  const heroRef = useRef(null);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    const image = imageRef.current;
+    if (!hero || !image || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+
+    let frame = 0;
+    const updateParallax = () => {
+      frame = 0;
+      const heroTop = hero.getBoundingClientRect().top;
+      const amplitude = window.matchMedia("(max-width: 767px)").matches ? 20 : 84;
+      const offset = Math.max(-amplitude, Math.min(amplitude, -heroTop * 0.2));
+      image.style.transform = `translate3d(0, ${offset}px, 0) scale(1.14)`;
+    };
+    const requestUpdate = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateParallax);
+    };
+
+    updateParallax();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
   const updatePointerGlow = (event) => {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     const rect = event.currentTarget.getBoundingClientRect();
@@ -168,7 +198,7 @@ function Hero() {
   };
 
   return (
-    <section className="hero grid bg-forest text-paper md:grid-cols-2" aria-labelledby="hero-title" onPointerMove={updatePointerGlow} onPointerLeave={(event) => event.currentTarget.classList.remove("has-pointer-glow")}>
+    <section ref={heroRef} className="hero grid bg-forest text-paper md:grid-cols-2" aria-labelledby="hero-title" onPointerMove={updatePointerGlow} onPointerLeave={(event) => event.currentTarget.classList.remove("has-pointer-glow")}>
       <Header />
       <div className="hero-copy flex flex-col justify-center px-6 pb-12 pt-36 md:px-[4.8vw] md:pb-8 md:pt-24">
         <div className="hero-copy__intro" data-reveal>
@@ -194,12 +224,11 @@ function Hero() {
       <figure className="hero-image relative min-h-[20rem] overflow-hidden lg:min-h-0">
         <img
           alt="Современный дом у моря в вечернем свете"
+          ref={imageRef}
           className="hero-image__base h-full w-full object-cover"
           fetchPriority="high"
           src={publicAsset("assets/coastal-home.webp")}
         />
-        <span aria-hidden="true" className="hero-wind-layer hero-wind-layer--branches" />
-        <span aria-hidden="true" className="hero-wind-layer hero-wind-layer--grass" />
         <figcaption className="hero-image__caption flex justify-between text-paper">
           <span>Дом и побережье</span><DemoPhotoLabel />
         </figcaption>

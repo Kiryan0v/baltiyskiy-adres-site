@@ -13,6 +13,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Build a one-page React business-card site for an independent realtor in Kaliningrad and the region.
 - Follow selected direction 1: editorial split hero, forest green and warm paper palette, serif display type, restrained coastal photography, clear about/services/process/contact sections.
 - Buttons use modest 8px rounding, a soft static shadow, and a subtle short 3D tilt on fine-pointer hover. Keep touch behavior simple and honor reduced-motion preferences.
+- Keep the forest-green and warm-paper realtor direction while borrowing motion references: use scroll-linked parallax on the hero photo, clear raised 3D feedback on buttons, and animate only existing process-step numbers. Do not add invented experience or sales metrics.
 - Keep section labels in sentence case and headings without trailing periods; do not add invented credentials, transaction counts, or reviews.
 - Match the selected image's section anatomy and content closely: split hero, image and about copy side by side, left service title beside three open service rows, four process columns, and a split contact/photo close.
 - Use Playfair Display for display headings with DM Sans for interface text, matching the selected mock's broader, higher-contrast serif letterforms.
