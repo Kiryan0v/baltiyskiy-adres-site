@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { siteConfig } from "./siteConfig.js";
 
+const homeHref = import.meta.env.BASE_URL;
+
 const today = new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long", year: "numeric" }).format(new Date());
 
 function PolicySection({ title, children }) {
@@ -24,7 +26,7 @@ export function PrivacyPolicy() {
   return (
     <div className="privacy-page min-h-screen bg-paper text-ink">
       <header className="privacy-header bg-forest px-6 py-6 text-paper md:px-[5vw]">
-        <a className="privacy-back" href="/#contact"><ArrowLeft aria-hidden="true" size={18} />Вернуться на сайт</a>
+        <a className="privacy-back" href={`${homeHref}#contact`}><ArrowLeft aria-hidden="true" size={18} />Вернуться на сайт</a>
         <p className="mt-12 text-sm text-clay">Балтийский адрес</p>
         <h1 className="font-display">Политика конфиденциальности</h1>
         <p className="privacy-date">Дата редакции: {today}</p>
@@ -74,7 +76,7 @@ export function PrivacyPolicy() {
 
         <p className="privacy-reminder">Перед запуском заполните все поля в квадратных скобках, подтвердите порядок обработки с хостингом и почтовым сервисом, добавьте актуальные контакты оператора и проверьте текст с юристом.</p>
       </main>
-      <footer className="site-footer bg-forest px-6 py-8 text-paper md:px-[5vw]"><div className="site-footer__inner mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><a className="font-display text-lg" href="/">{siteConfig.brand}</a><span className="text-xs text-paper/60">{siteConfig.legalName} · {siteConfig.region}</span></div></footer>
+      <footer className="site-footer bg-forest px-6 py-8 text-paper md:px-[5vw]"><div className="site-footer__inner mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><a className="font-display text-lg" href={homeHref}>{siteConfig.brand}</a><span className="text-xs text-paper/60">{siteConfig.legalName} · {siteConfig.region}</span></div></footer>
     </div>
   );
 }

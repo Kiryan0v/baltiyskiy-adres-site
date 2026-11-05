@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === "true" ? "/baltiyskiy-adres-site/" : "/",
   build: {
     outDir: "dist/client",
   },

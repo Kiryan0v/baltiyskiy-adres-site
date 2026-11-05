@@ -6,6 +6,9 @@ import { ServiceRow } from "./components/ServiceRow.jsx";
 import { SiteButton } from "./components/SiteButton.jsx";
 import { siteConfig } from "./siteConfig.js";
 
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+const privacyHref = `${import.meta.env.BASE_URL}privacy/`;
+
 const services = [
   {
     title: "Покупка и продажа жилья",
@@ -40,18 +43,18 @@ const services = [
 ];
 
 const properties = [
-  { type: "Квартира", title: "Светлая квартира рядом с парком", area: "62 м²", rooms: "2 комнаты", price: "12,4 млн ₽", image: "/assets/interior.webp", imageAlt: "Демонстрационное фото светлой гостиной с видом на город", location: "Калининград", url: "" },
-  { type: "Дом", title: "Дом с террасой у побережья", area: "128 м²", rooms: "4 комнаты", price: "18,9 млн ₽", image: "/assets/coastal-home.webp", imageAlt: "Демонстрационное фото современного дома у моря на закате", location: "Калининградская область", url: "" },
-  { type: "Квартира", title: "Квартира с видом на старый город", area: "48 м²", rooms: "1 комната", price: "9,7 млн ₽", image: "/assets/interior.webp", imageAlt: "Демонстрационное фото светлой гостиной с видом на город", location: "Калининград", url: "" },
+  { type: "Квартира", title: "Светлая квартира рядом с парком", area: "62 м²", rooms: "2 комнаты", price: "12,4 млн ₽", image: publicAsset("assets/interior.webp"), imageAlt: "Демонстрационное фото светлой гостиной с видом на город", location: "Калининград", url: "" },
+  { type: "Дом", title: "Дом с террасой у побережья", area: "128 м²", rooms: "4 комнаты", price: "18,9 млн ₽", image: publicAsset("assets/coastal-home.webp"), imageAlt: "Демонстрационное фото современного дома у моря на закате", location: "Калининградская область", url: "" },
+  { type: "Квартира", title: "Квартира с видом на старый город", area: "48 м²", rooms: "1 комната", price: "9,7 млн ₽", image: publicAsset("assets/interior.webp"), imageAlt: "Демонстрационное фото светлой гостиной с видом на город", location: "Калининград", url: "" },
 ];
 
 const testimonials = [
-  { name: "Анна и Михаил", context: "Покупка квартиры", quote: "Юлия помогла спокойно разобраться в районах и сравнить варианты. На каждом этапе мы понимали, что происходит и какие решения нужно принять.", image: "/assets/interior.webp" },
-  { name: "Елена", context: "Покупка дома", quote: "Понравилось внимательное отношение и помощь с документами. Сделка прошла понятно, а после получения ключей мы не остались один на один с вопросами.", image: "/assets/coastal-home.webp" },
-  { name: "Семья К.", context: "Подбор недвижимости", quote: "Сначала было сложно сформулировать запрос. Вместе определили приоритеты и нашли вариант, который подошёл семье и по расположению, и по планировке.", image: "/assets/coastal-home.webp" },
-  { name: "Ирина", context: "Продажа квартиры", quote: "Обсудили план продажи и подготовили квартиру к показам. Я понимала, как идут дела и какие шаги будут дальше.", image: "/assets/interior.webp" },
-  { name: "Александр", context: "Сопровождение сделки", quote: "Получил ответы на вопросы по документам и условиям покупки. Все этапы были объяснены заранее и понятным языком.", image: "/assets/coastal-home.webp" },
-  { name: "Семья М.", context: "Переезд в Калининград", quote: "Помогли сориентироваться в районах и выбрать дом для переезда. Было удобно обсуждать варианты и двигаться по плану.", image: "/assets/interior.webp" },
+  { name: "Анна и Михаил", context: "Покупка квартиры", quote: "Юлия помогла спокойно разобраться в районах и сравнить варианты. На каждом этапе мы понимали, что происходит и какие решения нужно принять.", image: publicAsset("assets/interior.webp") },
+  { name: "Елена", context: "Покупка дома", quote: "Понравилось внимательное отношение и помощь с документами. Сделка прошла понятно, а после получения ключей мы не остались один на один с вопросами.", image: publicAsset("assets/coastal-home.webp") },
+  { name: "Семья К.", context: "Подбор недвижимости", quote: "Сначала было сложно сформулировать запрос. Вместе определили приоритеты и нашли вариант, который подошёл семье и по расположению, и по планировке.", image: publicAsset("assets/coastal-home.webp") },
+  { name: "Ирина", context: "Продажа квартиры", quote: "Обсудили план продажи и подготовили квартиру к показам. Я понимала, как идут дела и какие шаги будут дальше.", image: publicAsset("assets/interior.webp") },
+  { name: "Александр", context: "Сопровождение сделки", quote: "Получил ответы на вопросы по документам и условиям покупки. Все этапы были объяснены заранее и понятным языком.", image: publicAsset("assets/coastal-home.webp") },
+  { name: "Семья М.", context: "Переезд в Калининград", quote: "Помогли сориентироваться в районах и выбрать дом для переезда. Было удобно обсуждать варианты и двигаться по плану.", image: publicAsset("assets/interior.webp") },
 ];
 
 const process = [
@@ -193,7 +196,7 @@ function Hero() {
           alt="Современный дом у моря в вечернем свете"
           className="hero-image__base h-full w-full object-cover"
           fetchPriority="high"
-          src="/assets/coastal-home.webp"
+          src={publicAsset("assets/coastal-home.webp")}
         />
         <span aria-hidden="true" className="hero-wind-layer hero-wind-layer--branches" />
         <span aria-hidden="true" className="hero-wind-layer hero-wind-layer--grass" />
@@ -209,7 +212,7 @@ function About() {
   return (
     <section className="about-section grid items-center gap-10 bg-paper px-6 py-20 text-ink lg:grid-cols-[1.06fr_1fr] lg:gap-16 lg:pl-[5vw] lg:pr-[5vw] lg:py-28" id="about">
       <figure className="about-image relative overflow-hidden rounded-[2px]" data-reveal>
-        <img alt="Светлая гостиная с видом на городские крыши" className="h-full w-full object-cover" loading="lazy" src="/assets/interior.webp" />
+        <img alt="Светлая гостиная с видом на городские крыши" className="h-full w-full object-cover" loading="lazy" src={publicAsset("assets/interior.webp")} />
         <figcaption className="image-caption"><DemoPhotoLabel /></figcaption>
       </figure>
       <div className="about-copy" data-reveal>
@@ -315,7 +318,7 @@ function SellingCTA() {
         <SiteButton href="#contact-form" className="selling-button mt-8 self-start">Записаться на консультацию</SiteButton>
       </div>
       <figure className="selling-image relative min-h-[20rem] overflow-hidden lg:min-h-[32rem]">
-        <img src="/assets/interior.webp" alt="Светлая квартира перед продажей" loading="lazy" />
+        <img src={publicAsset("assets/interior.webp")} alt="Светлая квартира перед продажей" loading="lazy" />
         <figcaption className="hero-image__caption flex justify-end text-paper"><DemoPhotoLabel /></figcaption>
       </figure>
     </section>
@@ -440,7 +443,7 @@ function Contact({ selectedService, onServiceChange }) {
           </select>
           <label className="contact-consent" htmlFor="contact-consent">
             <input id="contact-consent" name="consent" type="checkbox" required />
-            <span>Я даю отдельное согласие на обработку имени, телефона и выбранной услуги для ответа на обращение и связи со мной. Ознакомлен(а) с <a href="/privacy">Политикой конфиденциальности</a></span>
+            <span>Я даю отдельное согласие на обработку имени, телефона и выбранной услуги для ответа на обращение и связи со мной. Ознакомлен(а) с <a href={privacyHref}>Политикой конфиденциальности</a></span>
           </label>
           <button className="button button--primary contact-submit" type="submit">Отправить заявку <ArrowRight aria-hidden="true" size={18} /></button>
           <p className="contact-form__note" aria-live="polite">{formMessage || "После нажатия откроется почтовое приложение с черновиком. Для отправки нажмите «Отправить» в нём."}</p>
@@ -453,7 +456,7 @@ function Contact({ selectedService, onServiceChange }) {
 export function App() {
   const [selectedService, setSelectedService] = useState("");
   useEffect(() => {
-    const imageUrl = new URL("/assets/coastal-home.webp", window.location.origin).href;
+    const imageUrl = new URL(publicAsset("assets/coastal-home.webp"), window.location.origin).href;
     document.querySelector('meta[property="og:image"]')?.setAttribute("content", imageUrl);
     let ogUrl = document.querySelector('meta[property="og:url"]');
     if (!ogUrl) {
@@ -507,7 +510,7 @@ export function App() {
         <div className="site-footer__inner mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-1"><span className="font-display text-lg">{siteConfig.brand}</span><span className="text-xs text-paper/65">{siteConfig.legalName} · {siteConfig.region}</span></div>
           <nav className="site-footer__links flex flex-wrap items-center gap-x-6 gap-y-3" aria-label="Ссылки в подвале">
-            <a href="/privacy">Политика конфиденциальности</a>
+            <a href={privacyHref}>Политика конфиденциальности</a>
             {siteConfig.phone && <a href={`tel:${siteConfig.phone}`}>{siteConfig.phone}</a>}
             {siteConfig.email && <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>}
           </nav>

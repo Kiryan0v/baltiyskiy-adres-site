@@ -9,7 +9,7 @@ export const siteConfig = {
   privacyContactEmail: "",
   operatorStatus: "[уточните: физическое лицо, ИП или юридическое лицо]",
   operatorAddress: "[укажите адрес оператора]",
-  siteDomain: "[укажите домен сайта]",
+  siteDomain: "https://kiryan0v.github.io/baltiyskiy-adres-site",
   dataRetention: "[укажите срок хранения обращений и писем]",
   telegram: "",
   propertyLinks: ["", "", ""],

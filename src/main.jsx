@@ -4,7 +4,11 @@ import { App } from "./App.jsx";
 import { PrivacyPolicy } from "./PrivacyPolicy.jsx";
 import "./styles.css";
 
-const isPrivacyPage = window.location.pathname.replace(/\/$/, "") === "/privacy";
+const basePath = import.meta.env.BASE_URL;
+const appPath = window.location.pathname.startsWith(basePath)
+  ? `/${window.location.pathname.slice(basePath.length)}`
+  : window.location.pathname;
+const isPrivacyPage = appPath.replace(/\/$/, "") === "/privacy";
 
 const page = <React.StrictMode>{isPrivacyPage ? <PrivacyPolicy /> : <App />}</React.StrictMode>;
 const root = document.getElementById("root");
