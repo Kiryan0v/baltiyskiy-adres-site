@@ -209,6 +209,9 @@ section[id] { scroll-margin-top: var(--site-header-height); }
   .site-heading { font-size: clamp(1.9rem, 8vw, 2.5rem); }
   .hero-image { min-height: 390px; }
   .hero-image img { position: absolute; inset: -5% 0; }
+  .about-section { grid-template-areas: "copy" "image"; }
+  .about-copy { grid-area: copy; }
+  .about-image { grid-area: image; }
   .about-image { min-height: 0; aspect-ratio: 1 / 1.08; }
   .about-section { padding-block: 64px; }
   .service-row { grid-template-columns: 32px 1fr 24px; gap: 12px; padding-block: 18px; }

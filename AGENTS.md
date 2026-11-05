@@ -16,5 +16,6 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Keep the forest-green and warm-paper realtor direction while borrowing motion references: use scroll-linked parallax on the hero photo, clear raised 3D feedback on buttons, and animate only existing process-step numbers. Do not add invented experience or sales metrics.
 - Keep section labels in sentence case and headings without trailing periods; do not add invented credentials, transaction counts, or reviews.
 - Match the selected image's section anatomy and content closely: split hero, image and about copy side by side, left service title beside three open service rows, four process columns, and a split contact/photo close.
+- On mobile, show the about text before its photo; keep the desktop image-and-copy side-by-side composition.
 - Use Playfair Display for display headings with DM Sans for interface text, matching the selected mock's broader, higher-contrast serif letterforms.
 - Use the mock's terracotta Playfair style for all section labels, and keep the desktop hero at viewport height.
