@@ -8,14 +8,21 @@ When implementing from a selected generated mock, treat that image as the source
 
 Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.
 
-## Selected realtor direction
+## Selected premium realtor direction — new project branch
 
-- Build a one-page React business-card site for an independent realtor in Kaliningrad and the region.
-- Follow selected direction 1: editorial split hero, forest green and warm paper palette, serif display type, restrained coastal photography, clear about/services/process/contact sections.
-- Buttons use modest 8px rounding, a soft static shadow, and a subtle short 3D tilt on fine-pointer hover. Keep touch behavior simple and honor reduced-motion preferences.
-- Keep the forest-green and warm-paper realtor direction while borrowing motion references: use scroll-linked parallax on the hero photo, clear raised 3D feedback on buttons, and animate only existing process-step numbers. Do not add invented experience or sales metrics.
-- Keep section labels in sentence case and headings without trailing periods; do not add invented credentials, transaction counts, or reviews.
-- Match the selected image's section anatomy and content closely: split hero, image and about copy side by side, left service title beside three open service rows, four process columns, and a split contact/photo close.
-- On mobile, show the about text before its photo; keep the desktop image-and-copy side-by-side composition.
-- Use Playfair Display for display headings with DM Sans for interface text, matching the selected mock's broader, higher-contrast serif letterforms.
-- Use the mock's terracotta Playfair style for all section labels, and keep the desktop hero at viewport height.
+- Branch: `premium-realtor-variant-1`. Build a new one-page React business-card site; do not modify the existing published design in this branch.
+- Treat `C:/Users/belpr/.codex/generated_images/01a1a879-ab87-76e3-b340-043508863163/exec-7f6a0bf2-dc09-4da3-b886-9b325022fb02.png` as the selected visual source for hierarchy, dark teal and gold palette, serif headlines, photography, service cards, property cards and consultation close.
+- Treat all text, imagery, prices, and displayed figures in the selected mock as the source of truth. Use its editable sample phone (+7 (4012) 90-55-77), metrics (10+ years, 300+ deals), and sample property prices; the owner will replace these later. Do not substitute details from the previous site or invent additional metrics.
+- Listing content and the realtor portrait are clearly marked demonstrations until the owner replaces them. Use premium coastal/property photography with warm dusk light.
+- Preserve the source mock's exact editable placeholder figures: 10+ years, 300+ deals, and the sample property prices. Use count-up motion for the two hero metrics.
+- Keep one shared, image-backed deep-teal page atmosphere behind the sections, with translucent overlays and soft gradients so section boundaries do not look like separate solid blocks.
+- Keep the visual service cards limited to their icon, title, and short description as shown in the mock; the consultation form is opened from the closing CTA.
+- Keep the home page's visible section order and final CTA composition aligned with the source image; do not append extra visual sections outside the source canvas.
+- Match the reference typography: italic high-contrast Playfair Display for the hero, Playfair Display for display headings and metrics, and DM Sans for body/interface copy.
+- The about portrait must use a wide composition that preserves the subject's head and shoulders without clipping; fade its right edge into the copy and section background.
+- Use the gold pill CTA with a soft glow and dimensional hover, fine-pointer parallax on the hero image, a subtle pointer light, and sequential section reveals. Respect reduced-motion preferences and keep mobile interactions touch-friendly.
+- Preserve the existing privacy route and consent checkbox. The consultation form must disclose that the email is not configured instead of pretending to send a request.
+- Keep section labels in sentence case and headings without trailing periods; no artificial uppercase styling or expanded letter spacing on eyebrow labels.
+- On mobile, place the about copy before its portrait, collapse the property cards to one column, and provide a working full-screen navigation.
+- Use Playfair Display for display text and DM Sans for interface text. Keep spacing in 4px increments and use Tailwind theme tokens/classes for the palette.
+- After meaningful UI changes, verify desktop and mobile rendering in the local browser. Before handoff, run the production build.

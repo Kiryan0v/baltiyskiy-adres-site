@@ -5,7 +5,7 @@ export const siteConfig = {
   role: "частный риелтор в Калининграде и по России",
   region: "Калининград и Россия",
   email: "",
-  phone: "+79212649855",
+  phone: "+74012905577",
   privacyContactEmail: "",
   operatorStatus: "[уточните: физическое лицо, ИП или юридическое лицо]",
   operatorAddress: "[укажите адрес оператора]",
